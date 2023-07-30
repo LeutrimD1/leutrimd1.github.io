@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="technical-person-svgrepo-com.svg">
+    <link rel="stylesheet" href="style.css">
     <title>Leutrim Dema | Full Stack Dev</title>
 </head>
 <body>
-    
+    <form action="/willus.php" method="post" id="form-1">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+        <br>
+        <label for="free-form">Anything you want to say?</label>
+        <br>
+        <textarea name="free-form" id="free-form" cols="30" rows="10" required>Enter here</textarea>
+        <br>
+        <button type="submit" name="form-1" id="form-1" value="submitted">Send</button>
+    </form>
+    <script src="script.js"></script>
 </body>
 </html>
