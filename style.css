@@ -4,10 +4,14 @@
 .nav-list-item{
     flex: 1;
     text-align: center;
+    margin: 0;
 }
 form{
     text-align: center;
 }
 form label{
     display: inline;
+}
+body img{
+    max-width: 40px;
 }
