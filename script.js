@@ -7,7 +7,7 @@ document
     const formData = new FormData(event.target);
 
     // Make a POST request to the server using fetch API
-    const response = await fetch("https://leutrimdema-com.onrender.com/receiveData", {
+    const response = await fetch("https://leutrimdema-com.onrender.com/contactData", {
       method: "POST",
       body: formData,
     });
