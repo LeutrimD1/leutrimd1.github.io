@@ -1,44 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.svg">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
-    <title>Leutrim Dema | Full Stack Dev</title>
-    <style>
-        /* Ensure iframe fits the screen */
-        .resume-container iframe {
-            width: 100%;
-            height: 100vh;
-            border: none;
-        }
-        body {
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <!-- Prevent zooming on mobile and fit screen -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <title>Leutrim Dema | Full Stack Dev</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 0; margin: 0; }
+    nav { padding: 10px 20px; background: #f4f4f4; }
+    nav a { margin-right: 15px; text-decoration: none; color: blue; font-size: 1.1em; }
+    nav a:hover { text-decoration: underline; }
+    ul { padding-left: 0; list-style: none; }
+    li { display: flex; align-items: center; gap: 8px; padding: 4px 0; }
+    input[type="text"] { flex: 1; padding: 8px; font-size: 1em; }
+    button { padding: 8px; font-size: 1em; cursor: pointer; }
+    #todo-container { display: flex; gap: 8px; flex-wrap: wrap; }
+    #add-btn { background-color: #4CAF50; color: white; border: none; }
+    #reset-btn { background-color: #f66; color: white; border: none; }
+    .resume-container iframe { width: 100%; height: 100vh; border: none; }
+    @media (max-width: 500px) {
+      nav a { display: inline-block; margin-bottom: 10px; }
+      #todo-container { flex-direction: column; gap: 6px; }
+      input[type="text"], button { width: 100%; box-sizing: border-box; }
+    }
+  </style>
 </head>
 <body>
-    <!-- <nav class="nav-bar">
-        <ul class="nav-list-item">
-            <a href="./index.html">About</a>
-        </ul>
-        <ul class="nav-list-item">
-            <a href="./resume.html">Resume</a>
-        </ul>
-        <ul class="nav-list-item">
-            <a href="./contact.html">Contact</a>
-        </ul>
-    </nav> -->
-    <!-- <hr>
-    <div class="skeleton"></div>
-    <img id="10KB" src="Photos\2MB-Head-Shot-Cropped.jpg" alt="head-shot"> -->
+  <nav>
+    <a href="./" data-link>Home</a>
+    <a href="./todo" data-link>Todo</a>
+  </nav>
 
-    <!-- Embed the PDF resume file in the middle of the page -->
-    <div class="resume-container">
-        <iframe src="./LEUTRIM DEMA RESUME 2025.pdf"></iframe>
-    </div>
+  <div id="app"></div>
+
+  <script>
+    // Handle redirect from 404.html (skip if local file)
+    if (location.protocol !== "file:") {
+      const params = new URLSearchParams(window.location.search);
+      if (params.has("redirect")) {
+        history.replaceState(null, "", params.get("redirect"));
+      }
+    }
+
+    function renderHome() {
+      document.getElementById("app").innerHTML = `
+        <div class="resume-container">
+          <iframe src="./LEUTRIM DEMA RESUME 2025.pdf"></iframe>
+        </div>
+      `;
+    }
+
+    function renderTodo() {
+      document.getElementById("app").innerHTML = `
+        <h1>Todo App</h1>
+        <div id="todo-container">
+          <input type="text" id="todo-input" placeholder="Enter a task" />
+          <button id="add-btn">Add</button>
+          <button id="reset-btn">Reset</button>
+        </div>
+        <ul id="todo-list"></ul>
+      `;
+
+      const input = document.getElementById("todo-input");
+      const list = document.getElementById("todo-list");
+
+      document.getElementById("add-btn").onclick = () => {
+        const task = input.value.trim();
+        if (task) {
+          const li = document.createElement("li");
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          const span = document.createElement("span");
+          span.textContent = task;
+
+          checkbox.addEventListener("change", () => {
+            span.style.textDecoration = checkbox.checked ? "line-through" : "none";
+          });
+
+          li.appendChild(checkbox);
+          li.appendChild(span);
+          list.appendChild(li);
+          input.value = "";
+        }
+      };
+
+      document.getElementById("reset-btn").onclick = () => {
+        list.innerHTML = "";
+      };
+    }
+
+    function router() {
+      let path = window.location.pathname;
+      if (location.protocol === "file:") {
+        path = location.hash.replace("#", "") || "/";
+      }
+      if (path.endsWith("todo") || path === "/todo" || path === "todo") {
+        renderTodo();
+      } else {
+        renderHome();
+      }
+    }
+
+    document.addEventListener("click", (e) => {
+      if (e.target.matches("[data-link]")) {
+        e.preventDefault();
+        if (location.protocol === "file:") {
+          location.hash = e.target.getAttribute("href").replace("./", "");
+        } else {
+          history.pushState(null, "", e.target.href);
+          router();
+        }
+      }
+    });
+
+    window.addEventListener("popstate", router);
+    window.addEventListener("load", router);
+  </script>
 </body>
 </html>
