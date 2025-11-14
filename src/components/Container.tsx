@@ -7,7 +7,10 @@ const StyledContainer = styled("div")({
     marginRight: '10%',
     maxWidth: '100vw',
     overflowX: 'hidden',
-    boxSizing: "border-box"
+    boxSizing: "border-box",
+    minHeight: '100dvh',
+    transform: 'translateZ(0)',
+    WebkitOverflowScrolling: 'touch'
 })
 
 export default function Container({ children } : { children: React.ReactNode}) {
