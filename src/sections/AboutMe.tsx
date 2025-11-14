@@ -1,9 +1,10 @@
 import styled from "@emotion/styled"
 
+const Container = styled("div")({
+    textAlign: "center"
+});
+
 export default function AboutMe() {
-    const Container = styled("div")({
-        textAlign: "center"
-    })
     return (
         <>
             <Container>
