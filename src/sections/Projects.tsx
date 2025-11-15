@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
 import { Button, Card, CardActions, CardContent, CardMedia } from "@mui/material"
+import todoGif from '/Todo-list-gif-demo.gif';
 
 const Container = styled("div")({
     display: "flex",
@@ -20,14 +21,17 @@ export default function Projects() {
             <StyledCard>
                 <CardMedia
                     component={"img"}
-                    image="https://picsum.photos/200/200"
+                    image={todoGif}
                 />
                 <CardContent>
-                    Project 1
+                    My personal to-do list app. I host the Nodejs API server at home and have a DNS CNAME record that points to the public repo for the frontend. 
                 </CardContent>
                 <CardActions>
                     <Button>
-                        Go to 
+                        Go to Repo
+                    </Button>
+                    <Button>
+                        Go to live demo
                     </Button>
                 </CardActions>
             </StyledCard>
