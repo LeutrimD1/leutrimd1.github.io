@@ -1,21 +1,22 @@
 import AboutMe from "./sections/AboutMe";
 import Projects from "./sections/Projects";
 import Container from "./components/Container";
+import QuickNav from "./sections/QuickNav";
+import Experience from "./sections/Experience";
+import ContactInfo from "./sections/ContactInfo";
 
 function App() {
   return (
     <>
       <Container>
         <AboutMe />
-        <button>
-          Go to projects
-        </button>
-        Contact info
-        Experience
+        <QuickNav />
         <Projects />
+        <Experience />
+        <ContactInfo />
       </Container>
     </>
-  )
+  );
 }
 
 export default App

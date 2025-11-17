@@ -1,0 +1,47 @@
+import { GitHub, LinkedIn, Email, Phone } from "@mui/icons-material";
+import { Card, CardContent, CardHeader, Divider, Grid, Link, Typography } from "@mui/material";
+
+const ContactInfoCard = ({ icon, title, link }: { icon: any, title: string, link: string }) => {
+    return (<Card>
+        <CardHeader
+            avatar={
+                icon
+            }
+            title={
+                <Typography align="center">
+                    {title}
+                </Typography>
+            }
+        />
+        <Divider />
+        <CardContent>
+            <Link
+                href={link}
+                variant="body1"
+            >{link}</Link>
+        </CardContent>
+    </Card>)
+}
+
+export default function ContactInfo() {
+    return (<>
+        <Grid container alignSelf={"center"} spacing={"2em"} sx={{ padding: '10px 0px 10px 0px' }}>
+            <ContactInfoCard
+                icon={<GitHub />}
+                title="GitHub"
+                link="https://github.com/LeutrimD1" />
+            <ContactInfoCard
+                icon={<LinkedIn />}
+                title="LinkedIn"
+                link="https://www.linkedin.com/in/leutrim-dema-82bb78220" />
+            <ContactInfoCard
+                icon={<Email />}
+                title="Email"
+                link="leutrimD1@gmail.com" />
+            <ContactInfoCard
+                icon={<Phone />}
+                title="Phone"
+                link="682-558-9208" />
+        </Grid>
+    </>);
+}

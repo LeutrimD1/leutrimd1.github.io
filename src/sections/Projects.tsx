@@ -1,54 +1,77 @@
 import styled from "@emotion/styled"
-import { Button, Card, CardActions, CardContent, CardMedia } from "@mui/material"
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Chip, Grid, Typography } from "@mui/material"
 import todoGif from '/Todo-list-gif-demo.gif';
 
 const Container = styled("div")({
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "space-evenly",
-    gap: "1rem"  // Adds spacing between cards
+    gap: "1rem" 
 });
 
-const StyledCard = styled(Card)({
-    flex: "1 1 calc(50% - 1rem)",
-    minWidth: "300px",  
-    maxWidth: "500px" 
-});
+
+const ProjectCard = ({ image, chips, description, repoLink, demoLink }: {
+    image: any,
+    chips: Array<string>,
+    description: string,
+    repoLink: string,
+    demoLink: string
+}) => {
+    return (
+        <Card>
+            <CardMedia
+                component={"img"}
+                image={image} />
+            <CardContent>
+                <Typography sx={{ mb: 2 }}>
+                    {description}
+                </Typography>
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                    {chips.map((chip: string, index: number) => (
+                        <Chip key={index} label={chip} />
+                    ))}
+                </Box>
+            </CardContent>
+            <CardActions>
+                <Button href={repoLink}>
+                    Go to Repo
+                </Button>
+                <Button href={demoLink}>
+                    Go to live demo
+                </Button>
+            </CardActions>
+        </Card>
+    );
+}
+
+const todoAppDescription = "My personal to-do list app. I host the Nodejs API server at home and have a DNS CNAME record that points to the public repo for the frontend.";
+const todoAppChips = ["Kubernetes", "React/Redux", "NodeJs API Server"];
+const todoAppRepoLink = "";
+const todoAppDemoLink = "";
 
 export default function Projects() {
     return (
         <Container>
-            <StyledCard>
-                <CardMedia
-                    component={"img"}
-                    image={todoGif}
-                />
-                <CardContent>
-                    My personal to-do list app. I host the Nodejs API server at home and have a DNS CNAME record that points to the public repo for the frontend. 
-                </CardContent>
-                <CardActions>
-                    <Button>
-                        Go to Repo
-                    </Button>
-                    <Button>
-                        Go to live demo
-                    </Button>
-                </CardActions>
-            </StyledCard>
-            <StyledCard>
-                <CardMedia
-                    component={"img"}
-                    image="https://picsum.photos/200/200"
-                />
-                <CardContent>
-                    Project 2
-                </CardContent>
-                <CardActions>
-                    <Button>
-                        Go to 
-                    </Button>
-                </CardActions>
-            </StyledCard>
+            <Grid container spacing={2}>
+                <Grid size={{ xs: 12, md: 6 }}>
+                    <ProjectCard
+                        image={todoGif}
+                        chips={todoAppChips}
+                        description={todoAppDescription}
+                        repoLink={todoAppRepoLink}
+                        demoLink={todoAppDemoLink}
+                    />
+                </Grid>
+                <Grid size={{ xs: 12, md: 6 }}>
+                    <ProjectCard
+                        image={"https://picsum.photos/200/100"}
+                        chips={[]}
+                        description={"Project 2"}
+                        repoLink={todoAppRepoLink}
+                        demoLink={todoAppDemoLink}
+                    />
+                </Grid>
+            </Grid>
         </Container>
-    )
+    );
 }
