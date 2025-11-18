@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 
 export default function Experience() {
     return (<>
-        <div>
+        <div id="experience">
             <Typography>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo rutrum feugiat. Vivamus finibus dapibus leo at fermentum. Nunc malesuada purus a lectus porta blandit. Fusce lacinia ultrices suscipit. Integer pharetra dui et feugiat fermentum. Maecenas sit amet pretium felis, et facilisis lacus. Sed ut scelerisque justo, ut interdum nulla. Vestibulum eget suscipit eros. Curabitur et mattis sem. Nullam iaculis mi ut tempor accumsan. Nullam gravida, nulla ac consectetur finibus, lacus nisl finibus augue, at maximus odio diam consectetur dolor. Vestibulum id turpis id neque interdum tempor.
 

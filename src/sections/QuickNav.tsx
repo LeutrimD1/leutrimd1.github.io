@@ -4,14 +4,14 @@ export default function QuickNav() {
     return (<>
         <Grid container alignSelf={"center"}>
             <Grid>
-                <Button>
+                <Button href="#projects">
                     Projects
                 </Button>
-                <Button>
-                    Contact Info
-                </Button>
-                <Button>
+                <Button href="#experience">
                     Experience
+                </Button>
+                <Button href="#contact-info">
+                    Contact Info
                 </Button>
             </Grid>
         </Grid>

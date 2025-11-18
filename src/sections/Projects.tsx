@@ -18,7 +18,7 @@ const ProjectCard = ({ image, chips, description, repoLink, demoLink }: {
     demoLink: string
 }) => {
     return (
-        <Card>
+        <Card id="projects">
             <CardMedia
                 component={"img"}
                 image={image} />
