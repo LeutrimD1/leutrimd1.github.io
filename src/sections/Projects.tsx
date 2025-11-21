@@ -33,10 +33,10 @@ const ProjectCard = ({ image, chips, description, repoLink, demoLink }: {
                 </Box>
             </CardContent>
             <CardActions>
-                <Button href={repoLink}>
+                <Button href={repoLink} target="_blank" >
                     Go to Repo
                 </Button>
-                <Button href={demoLink}>
+                <Button href={demoLink} target="_blank" >
                     Go to live demo
                 </Button>
             </CardActions>
@@ -46,8 +46,8 @@ const ProjectCard = ({ image, chips, description, repoLink, demoLink }: {
 
 const todoAppDescription = "My personal to-do list app. I host the Nodejs API server at home and have a DNS CNAME record that points to the public repo for the frontend.";
 const todoAppChips = ["Kubernetes", "React/Redux", "NodeJs API Server"];
-const todoAppRepoLink = "";
-const todoAppDemoLink = "";
+const todoAppRepoLink = "https://github.com/LeutrimD1/todo-page";
+const todoAppDemoLink = "https://todos.leutrimdema.com";
 
 export default function Projects() {
     return (
