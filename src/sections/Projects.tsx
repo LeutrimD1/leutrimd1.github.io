@@ -1,6 +1,7 @@
 import styled from "@emotion/styled"
 import { Box, Button, Card, CardActions, CardContent, CardMedia, Chip, Grid, Typography } from "@mui/material"
 import todoGif from '/Todo-list-gif-demo.gif';
+import webRTCGif from '/WebRTC-Chat.gif';
 
 const Container = styled("div")({
     display: "flex",
@@ -44,10 +45,14 @@ const ProjectCard = ({ image, chips, description, repoLink, demoLink }: {
     );
 }
 
-const todoAppDescription = "My personal to-do list app. I host the Nodejs API server at home and have a DNS CNAME record that points to the public repo for the frontend. The NodeJs server is visable at https://github.com/LeutrimD1/todo-server";
+const todoAppDescription = "My personal to-do list app. I host the Nodejs API server at home and have a DNS CNAME record that points to the github pages deployment of the frontend. The NodeJs server is visable at https://github.com/LeutrimD1/todo-server";
 const todoAppChips = ["Kubernetes", "React/Redux", "NodeJs API Server"];
 const todoAppRepoLink = "https://github.com/LeutrimD1/todo-page";
 const todoAppDemoLink = "https://todos.leutrimdema.com";
+
+const webRTCChips = ["React Native", "WebRTC", "Fleck C# web socket signaling server"];
+const webRTCRepoLink = "https://github.com/LeutrimD1/webrtc-client";
+const webRTCDemoLink = "";
 
 export default function Projects() {
     return (
@@ -64,11 +69,11 @@ export default function Projects() {
                 </Grid>
                 <Grid size={{ xs: 12, md: 6 }}>
                     <ProjectCard
-                        image={"https://picsum.photos/200/100"}
-                        chips={[]}
-                        description={"Project 2"}
-                        repoLink={todoAppRepoLink}
-                        demoLink={todoAppDemoLink}
+                        image={webRTCGif}
+                        chips={webRTCChips}
+                        description={"WIP --- \n a chat app using webRTC to connect peers directly after discovery. Planning to host the signaling server in my k3s cluster have github pages server the react native dist at chat.leutrimdema.com... currently does not have a demo link"}
+                        repoLink={webRTCRepoLink}
+                        demoLink={webRTCDemoLink}
                     />
                 </Grid>
             </Grid>
