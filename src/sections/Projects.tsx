@@ -44,7 +44,7 @@ const ProjectCard = ({ image, chips, description, repoLink, demoLink }: {
     );
 }
 
-const todoAppDescription = "My personal to-do list app. I host the Nodejs API server at home and have a DNS CNAME record that points to the public repo for the frontend.";
+const todoAppDescription = "My personal to-do list app. I host the Nodejs API server at home and have a DNS CNAME record that points to the public repo for the frontend. The NodeJs server is visable at https://github.com/LeutrimD1/todo-server";
 const todoAppChips = ["Kubernetes", "React/Redux", "NodeJs API Server"];
 const todoAppRepoLink = "https://github.com/LeutrimD1/todo-page";
 const todoAppDemoLink = "https://todos.leutrimdema.com";

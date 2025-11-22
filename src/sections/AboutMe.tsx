@@ -1,4 +1,5 @@
-import styled from "@emotion/styled"
+import styled from "@emotion/styled";
+import { Typography } from "@mui/material";
 
 const Container = styled("div")({
     textAlign: "center"
@@ -8,18 +9,24 @@ export default function AboutMe() {
     return (
         <>
             <Container>
-                <p>
-                    I'm Leutrim, a Full Stack Developer building creative 
-                    and scalable web applications.
-                </p>
-                <p>
-                    I'm currently working at Paycom LLC on an internal 
-                    CRM application using PHP, React/Redux, and C#.
-                </p>
-                <p>
-                    When I'm not outside touching grass, I like to 
-                    develop personal projects that benefit myself and others.
-                </p>
+                <Typography variant="h4" fontWeight="bold" gutterBottom>
+                    About Me
+                </Typography>
+
+                <Typography variant="body1" sx={{ maxWidth: 800, mx: "auto", mb: 2 }}>
+                    I'm Leutrim — a Full Stack Developer focused on building clean, scalable,
+                    and user-centric web and mobile applications.
+                </Typography>
+
+                <Typography variant="body1" sx={{ maxWidth: 800, mx: "auto", mb: 2 }}>
+                    I recently worked at Paycom, contributing to mission-critical internal
+                    CRM system using PHP, React/Redux, C#, WebSockets, RabbitMQ, couchbase, and SQL.
+                </Typography>
+
+                <Typography variant="body1" sx={{ maxWidth: 800, mx: "auto" }}>
+                    When I'm not outside enjoying nature, I enjoy building personal projects
+                    that benefit myself and others.
+                </Typography>
             </Container>
         </>
     );
